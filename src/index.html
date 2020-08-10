@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="admin">
+        <a href="registry.html">请注册</a>
+        <a href="login.html">请登录</a>
+    </div>
+    <div class="login" style="display: none;">
+        <span></span>欢迎光临！！
+        <a href="javascript:;">退出</a>
+    </div>
+    <script src="../../../public2005.js"></script>
+    <script>
+        if (localStorage.getItem('username')) {
+            $('.admin').style.display = 'none';
+            $('.login').style.display = 'block';
+            $('span').innerHTML = localStorage.getItem('username');
+        }
+
+        $('.login a').onclick = function() {
+            $('.admin').style.display = 'block';
+            $('.login').style.display = 'none';
+            localStorage.removeItem('username');
+        }
+    </script>
+</body>
+
+</html>
